@@ -51,9 +51,9 @@ public class Finder {
 				chek = false;
 			}
 		}
-		
 		chek = true;
 		m = p.matcher(strBuf);
+		
 		while(chek) {
 			if( m.find()){ valueIf++; }
 			else{ chek = false; }
@@ -63,13 +63,18 @@ public class Finder {
 	private void doThisForTmp() throws IOException{
 		
 		BufferedReader reader = new BufferedReader(new FileReader(fileName));
-		Pattern p = Pattern.compile(stringTmp);
+		Pattern p = Pattern.compile("(^|\\W)" + stringTmp + "(\\W|$)"); 
 		Matcher m;
-
-			while((tmp = reader.readLine()) != null){
+		boolean chek;
+			
+		while((tmp = reader.readLine()) != null){
 				m = p.matcher(tmp);
-					if(m.find())
-						valueTmp++;	
+				chek = true;
+				
+				while(chek) {
+					if(m.find()){ valueTmp++; }
+					else{ chek = false; }
+				}
 			}
 		reader.close();
 	}
