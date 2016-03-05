@@ -25,26 +25,39 @@ public class Finder {
 			this.fileName = fileName;
 	}
 	
-	String findIf = "[^\";]?if\\(.*[^\"]\\)\\{?"; 
 	String tmp;
-	
 	
 	private void doThisForIf() throws IOException{
 		
 		BufferedReader reader = new BufferedReader(new FileReader(fileName));
-		Pattern p = Pattern.compile(findIf);
+		
+		Pattern p = Pattern.compile(("if\\(([^\\s\"]*|.+)\\)\\}?"));
+		Pattern p1 = Pattern.compile("(\\/\\/.+)|(\\/(\\/|\\*).+?\\*\\/)|(\".*\")");
+		
 		Matcher m, m1;
-
+		StringBuffer strBuf = new StringBuffer();
+		 
 		while((tmp = reader.readLine()) != null){
-			m = p.matcher(tmp);
-			if(m.find()){
-				Pattern p1 = Pattern.compile("\\/(\\/|\\*).+");
-				m1 = p1.matcher(tmp);
-				if(!m1.find())
-					valueIf++;
-			}
+			strBuf.append(tmp+ "\n" );
 		}
 		reader.close();
+		
+		boolean chek = true;
+		m1 = p1.matcher(strBuf); 
+		while(chek) {
+			if(m1.find(1)){
+				strBuf.delete(m1.start(), m1.end());}
+			else{
+				chek = false;
+			}
+		}
+		
+		chek = true;
+		m = p.matcher(strBuf);
+		while(chek) {
+			if( m.find()){ valueIf++; }
+			else{ chek = false; }
+		}
 	}
 	
 	private void doThisForTmp() throws IOException{
