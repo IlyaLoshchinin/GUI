@@ -31,8 +31,8 @@ public class Finder {
 		
 		BufferedReader reader = new BufferedReader(new FileReader(fileName));
 		
-		Pattern p = Pattern.compile(("if\\(([^\\s\"]*|.+)\\)\\}?"));
-		Pattern p1 = Pattern.compile("(\\/\\/.+)|(\\/(\\/|\\*).+?\\*\\/)|(\".*\")");
+		Pattern p = Pattern.compile("if\\s*\\([\\S\\s]*?\\)\\{?");
+		Pattern p1 = Pattern.compile("(\\/\\/.+)|(\\/(\\/|\\*).+?\\*\\/)|(\".*\")|(\\/\\*[\\s\\S]*?\\*\\/)");
 		
 		Matcher m, m1;
 		StringBuffer strBuf = new StringBuffer();
@@ -42,6 +42,7 @@ public class Finder {
 		}
 		reader.close();
 		
+		if(!strBuf.toString().isEmpty()){	
 		boolean chek = true;
 		m1 = p1.matcher(strBuf); 
 		while(chek) {
@@ -51,6 +52,7 @@ public class Finder {
 				chek = false;
 			}
 		}
+		
 		chek = true;
 		m = p.matcher(strBuf);
 		
@@ -58,12 +60,14 @@ public class Finder {
 			if( m.find()){ valueIf++; }
 			else{ chek = false; }
 		}
+		
+		}
 	}
 	
 	private void doThisForTmp() throws IOException{
 		
 		BufferedReader reader = new BufferedReader(new FileReader(fileName));
-		Pattern p = Pattern.compile("(^|\\W)" + stringTmp + "(\\W|$)"); 
+		Pattern p = Pattern.compile(stringTmp); 
 		Matcher m;
 		boolean chek;
 			
