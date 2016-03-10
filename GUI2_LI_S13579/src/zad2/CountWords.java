@@ -47,13 +47,13 @@ public class CountWords {
 		}
 		reader.close();
 	
-		
+		System.out.println(strBuf);
 		Pattern p1;
 		Matcher m1;
 		int i = 0;
 		
 		for (Map.Entry<String, Integer> entry: lHashMap.entrySet()){
-			p1 = Pattern.compile(entry.getKey());
+			p1 = Pattern.compile("(?<=\\W|^)"+entry.getKey()+"(?=\\W|$)");
 			m1 = p1.matcher(strBuf);
 			
 			while(m1.find()){
