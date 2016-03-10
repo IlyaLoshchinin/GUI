@@ -24,7 +24,7 @@ public class Main {
 			String tmp;
 
 			Pattern p = Pattern.compile("-?\\d+");
-			Pattern p2 = Pattern.compile("\\w+\\d?[^\\d\\s].+?|-\\D");
+			Pattern p2 = Pattern.compile("[^\\d\\s\\-]+?|-( |$)|\\d+-\\d+");
 			Matcher m, m2;
 			ArrayList<String> list = new ArrayList<String>();
 			while ((tmp = reader.readLine()) != null) {
