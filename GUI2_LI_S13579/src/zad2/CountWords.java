@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -33,7 +33,7 @@ public class CountWords {
 		StringBuffer strBuf = new StringBuffer();
 		String tmp;
 		
-		HashMap<String,Integer> hashMap = new HashMap<String,Integer>();
+		LinkedHashMap<String,Integer> lHashMap = new LinkedHashMap<String,Integer>();
 		
 		Pattern p = Pattern.compile("(?=(.?|^))[\\w]+(?=(.?|$))");
 		Matcher m ;
@@ -42,18 +42,18 @@ public class CountWords {
 			
 			while(m.find()){
 				strBuf.append(m.group() + " ");
-				hashMap.put(m.group(), 1);
+				lHashMap.put(m.group(), 0);
 			}
 		}
 		reader.close();
+	
 		
-		//System.out.println(strBuf);
 		Pattern p1;
 		Matcher m1;
 		int i = 0;
 		
-		for (Map.Entry<String, Integer> entry: hashMap.entrySet()){
-			p1 = Pattern.compile(" "+entry.getKey()+" ");
+		for (Map.Entry<String, Integer> entry: lHashMap.entrySet()){
+			p1 = Pattern.compile(entry.getKey());
 			m1 = p1.matcher(strBuf);
 			
 			while(m1.find()){
