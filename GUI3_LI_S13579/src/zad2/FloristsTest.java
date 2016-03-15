@@ -4,13 +4,13 @@
  *
  */
 
-package zad2;
+/*package zad2;
 
 
 public class FloristsTest {
   // definicja metody sumowania wartosci kwiatów o podanym kolorze 
   static int valueOf(Box box, String color) {
-       /*<- tu trzeba wpisac kod metody */
+       <- tu trzeba wpisac kod metody 
   }
 
   public static void main(String[] args) {
@@ -85,3 +85,4 @@ public class FloristsTest {
     System.out.println("Stefanowi zostało : " + stefan.getCash() + " zł");
   }
 }
+*/
