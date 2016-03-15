@@ -4,7 +4,7 @@ public class Pacjent {
 	private String imie;
 	private String nazwaChoroby;
 	private String zastosowano;
-
+//HELLO!
 	 public String nazwisko() {
 		return imie;
 	}
