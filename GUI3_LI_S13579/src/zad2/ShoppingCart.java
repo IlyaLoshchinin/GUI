@@ -6,7 +6,5 @@ public class ShoppingCart extends Pudelko{
 		super(obj);
 	}
 	
-	public String toString(){
-		return arrayList.toString();///???
-	}
+	
 }

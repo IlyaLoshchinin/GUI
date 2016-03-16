@@ -18,4 +18,5 @@ public class PriceList extends HashMap<String,Double> {
 	}
 	
 	
+	
 }

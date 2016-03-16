@@ -11,8 +11,15 @@ public abstract class Pudelko {
 	}
 	
 	public void add(Kwiaty ob){
-		arrayList.add(ob);
+		if(ob != null)
+			arrayList.add(ob);
 	}
-	
-	
+	@Override
+	public String toString(){
+		String str = "";
+		for (Kwiaty kwiaty : arrayList) {
+			str +=  kwiaty.getClass().getSimpleName()+ " -> " + kwiaty.getIloscKwiat() + " szt.\n"; 
+		}
+		return str;
+	}
 }
