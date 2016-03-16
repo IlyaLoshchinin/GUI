@@ -1,27 +1,17 @@
 package zad1;
 
-public class Pacjent {
+public abstract class Pacjent {
 	private String imie;
-	private String nazwaChoroby;
-	private String zastosowano;
+	
+	 public Pacjent(String imie){
+		 this.imie = imie;
+	 }
+	 
+	public abstract String choroba();
+	public abstract String leczenie();
 
-	 public String nazwisko() {
+	public String nazwisko() {	
 		return imie;
 	}
-	 public String choroba() {
-		return nazwaChoroby;
-	}
-	 public String leczenie() {
-		return zastosowano;
-	}
 	  
-	protected void setImie(String imie) {
-		this.imie = imie;
-	}
-	protected void setNazwaChoroby(String nazwaChoroby) {
-		this.nazwaChoroby = nazwaChoroby;
-	}
-	protected void setZastosowano(String zastosowano) {
-		this.zastosowano = zastosowano;
-	}
 }
