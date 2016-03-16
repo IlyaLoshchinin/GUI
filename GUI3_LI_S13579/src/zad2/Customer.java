@@ -2,24 +2,29 @@ package zad2;
 
 import java.util.ArrayList;
 
-public class Customer extends ArrayList<Kwiaty>{
+public class Customer {
 	private String imie;
 	private double pienendzy;
-	
+	ShoppingCart shoppingCart;
 	
 	
 	public Customer(String imie,double value){
 		this.imie = imie;
 		this.pienendzy = value;
+		this.shoppingCart = new ShoppingCart(this);
 	}
 	
 	public void get(Kwiaty ob){
-		super.add(ob);
+		this.shoppingCart.add(ob);
 	}
 
 	public ShoppingCart getShoppingCart() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.shoppingCart;
+	}
+
+	public void pack(Box pudelkoJanka) {
+		
+		
 	}
 
 	

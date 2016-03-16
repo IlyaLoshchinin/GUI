@@ -38,11 +38,12 @@ public class FloristsTest {
 
     // Pewnie je umieścił na wózku sklepowyem
     // Zobaczmy co tam ma
+    //dolrzno pokazat czto tam i skolko
     ShoppingCart wozekJanka = janek.getShoppingCart();
     System.out.println("Przed płaceniem\n" + wozekJanka);
-
+    
     // Teraz za to zapłaci...
-    janek.pay();
+    /*janek.pay();
 
     // Czy przypadkiem przy płaceniu nie okazało się,
     // że w koszu są kwiaty na które nie ustalono jeszcze ceny?
@@ -88,7 +89,7 @@ public class FloristsTest {
     // co ostatecznie udało mu się kupić
     System.out.println(pudelkoStefana);
     // ... i ile zostało mu pieniędzy
-    System.out.println("Stefanowi zostało : " + stefan.getCash() + " zł");
+    System.out.println("Stefanowi zostało : " + stefan.getCash() + " zł");*/
   }
 }
 /*Uwaga: kod tego programu można zmienic tylko w miejscu zaznaczonym na zielono.
