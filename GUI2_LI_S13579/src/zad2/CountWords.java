@@ -47,7 +47,7 @@ public class CountWords {
 		}
 		reader.close();
 	
-		System.out.println(strBuf);
+		//System.out.println(strBuf);
 		Pattern p1;
 		Matcher m1;
 		int i = 0;
