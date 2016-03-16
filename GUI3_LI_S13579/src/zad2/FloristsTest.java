@@ -16,7 +16,14 @@ package zad2;
 public class FloristsTest {
   // definicja metody sumowania wartosci kwiatów o podanym kolorze 
   static int valueOf(Box box, String color) {
-       return 0;
+       int tmp = 0;
+       PriceList price = PriceList.getInstance();
+	  for (Kwiaty kwiaty : box.arrayList) {
+		if(color.equals(kwiaty.color)){
+			tmp += price.get(kwiaty.nazwaPrice) * kwiaty.getIloscKwiat();
+		}
+	}
+	  return tmp;
   }
 
   public static void main(String[] args) {
@@ -43,7 +50,7 @@ public class FloristsTest {
     System.out.println("Przed płaceniem\n" + wozekJanka);
     
     // Teraz za to zapłaci...
-    /*janek.pay();
+    janek.pay();
 
     // Czy przypadkiem przy płaceniu nie okazało się,
     // że w koszu są kwiaty na które nie ustalono jeszcze ceny?
@@ -89,29 +96,6 @@ public class FloristsTest {
     // co ostatecznie udało mu się kupić
     System.out.println(pudelkoStefana);
     // ... i ile zostało mu pieniędzy
-    System.out.println("Stefanowi zostało : " + stefan.getCash() + " zł");*/
+    System.out.println("Stefanowi zostało : " + stefan.getCash() + " zł");
   }
 }
-/*Uwaga: kod tego programu można zmienic tylko w miejscu zaznaczonym na zielono.
-
-
-Dodawanie do  programu nowych rodzajów kwiatów  ma byc bardzo łatwe.
-Przy dodaniu nowego rodzaju kwiatów nie wolno modyfikować żadnych innych klas programu.
-Wymagania dodatkowe:
-
-    należy wykorzystać klasy abstrakcyjne i polimorfizm
-    należy zminimalizować kod klas ShoppingCart i Box
-    należy zdefiniować klasę PriceList jako singleton (możemy mieć zawsze tylko jeden cennik)
-
-Ważne uwagi.
-
-    W kwiaciarni mogą być kwiaty, których zapomniano dodać do cennika. Wtedy przy płaceniu są one usuwane z naszego wózka.
-    Może się okazać, że klient nie dysponuje odpowiednią kwotą pieniędzy aby zapłacić za całą zawartość wóżka. 
-    Wtedy z wózka usuwane są kwiaty, za które klient nie może zapłacić 
-    (ale nie pojedyńczo, tylko w kompletach np. po stefan.get(new Lilac(3))
-    		usuwane są te trzy bzy na które Stefan nie ma pieniędzy).
-    Warto zwrócić uwagę na odpowiednio zdefiniowanie metody toString() w niektórych klasach.
-
-
-I na koniec: nie przejmujemy się tym, że np. róże mogą mieć wiele kolorów. 
-Dla uproszczenia przyjęliśmy, że róże są czerwone itd.*/
