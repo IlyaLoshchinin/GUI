@@ -19,8 +19,8 @@ public class FloristsTest {
        int tmp = 0;
        PriceList price = PriceList.getInstance();
 	  for (Kwiaty kwiaty : box.arrayList) {
-		if(color.equals(kwiaty.color)){
-			tmp += price.get(kwiaty.nazwaPrice) * kwiaty.getIloscKwiat();
+		if(color.equals(kwiaty.getColor())){
+			tmp += price.get(kwiaty.getNazwaPrice()) * kwiaty.getIloscKwiat();
 		}
 	}
 	  return tmp;

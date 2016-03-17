@@ -37,17 +37,16 @@ public class Customer {
 		double tmp = 0;
 		
 		for (Kwiaty kwiaty : shoppingCart.arrayList) {
-			if(!price.containsKey(kwiaty.nazwaPrice)){ 
+			if(!price.containsKey(kwiaty.getNazwaPrice())){ 
 				shoppingCart.arrayList.remove(kwiaty);
 			}
 		}
 		int i = 0;
 		for (Kwiaty kwiaty : shoppingCart.arrayList) {
-			if(price.containsKey(kwiaty.nazwaPrice)){ 
-				tmp = kwiaty.getIloscKwiat() * price.get(kwiaty.nazwaPrice);
+			if(price.containsKey(kwiaty.getNazwaPrice())){ 
+				tmp = kwiaty.getIloscKwiat() * price.get(kwiaty.getNazwaPrice());
 				if(pienendzy >= tmp){
 					pienendzy -= tmp; 
-					//System.out.println(pienendzy);
 				}else {
 					index.add(i);}
 				}

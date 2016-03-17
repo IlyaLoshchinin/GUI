@@ -2,11 +2,13 @@ package zad2;
 
 public abstract class Kwiaty {
 	private int iloscKwiat;
-	protected String nazwaPrice;
-	protected String color;
+	private String nazwaPrice;
+	private String color;
 	
-	public Kwiaty(int value){
+	public Kwiaty(int value,String nazwaPrice,String color){
 		this.iloscKwiat = value;
+		this.nazwaPrice = nazwaPrice;
+		this.color = color;
 	}
 	
 	public int getIloscKwiat() {
@@ -17,5 +19,7 @@ public abstract class Kwiaty {
 		return nazwaPrice;
 	}
 	
-	
+	public String getColor() {
+		return color;
+	}
 }
