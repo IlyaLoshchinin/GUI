@@ -7,5 +7,8 @@ public class Rose extends Kwiaty {
 			
 		}
 		
-		
+		@Override
+		public String getColor() {
+			return super.getColor();
+		}
 }

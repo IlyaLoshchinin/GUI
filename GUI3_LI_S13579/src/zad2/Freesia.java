@@ -6,5 +6,8 @@ public class Freesia extends Kwiaty {
 		super(value,"frezja","bialy");
 	}
 	
-	
+	@Override
+	public String getColor() {
+		return super.getColor();
+	}
 }

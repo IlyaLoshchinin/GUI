@@ -6,5 +6,8 @@ public class Peony extends Kwiaty {
 		super(value,"piwonia","różowy");
 	}
 
-	
+	@Override
+	public String getColor() {
+		return super.getColor();
+	}
 }
