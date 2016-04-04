@@ -36,12 +36,12 @@ public class ReverseTest {
 
         System.out.println("Przywrócone i zmienione:");
         for (Reversible r : revers) {
-        	r.reverse();
-         if(r instanceof ReversibleString ){
-        	 System.out.println("Tekst "+r);
-         }else{
-        	 System.out.println(Double.parseDouble(r.toString()) + 10.0);
-         }
+			r.reverse();
+			if (r instanceof ReversibleString) {
+				System.out.println("Tekst " + r);
+			} else {
+				System.out.println(Double.parseDouble(r.toString()) + 10.0);
+			}
         }
       }
     }
