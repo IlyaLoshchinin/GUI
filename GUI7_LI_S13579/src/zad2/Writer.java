@@ -9,7 +9,7 @@ package zad2;
 public class Writer implements Runnable {
 
 	Author a;
-
+	
 	public Writer(Author autor) {
 		a = autor;
 	}
@@ -17,18 +17,15 @@ public class Writer implements Runnable {
 	@Override
 	public void run() {
 		try {
-
-			String txt = a.getTextToWrite();
-
-			while (txt != null) {
-				System.out.println(txt);
+			
+			String txt;
+			for (int i = 0; i < a.s.length; i++) {
 				txt = a.getTextToWrite();
+				System.out.println(txt);
 			}
-
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
+	
 }
