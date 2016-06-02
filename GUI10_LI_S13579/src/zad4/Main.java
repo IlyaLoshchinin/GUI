@@ -98,9 +98,6 @@ public class Main {
 	  foreground.add(new myMenuItem("Black",Color.BLACK));
 	  foreground.add(new myMenuItem("Green",Color.GREEN));
 	  
-	  
-	  
-	  
 	  JMenu background = new myJMenu("Background");
 	  optionsMenu.add(background);
 	  
