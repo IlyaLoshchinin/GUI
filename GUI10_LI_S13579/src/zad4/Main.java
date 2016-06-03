@@ -29,10 +29,20 @@ import javax.swing.WindowConstants;
 
 public class Main {
 
+	private static JScrollPane scrollPane;
+
+	static JFrame frame;
+
 	public static void main(String[] args) {
 
-		JFrame frame = new JFrame();
-		frame.setSize(500, 500);
+		frame = new JFrame();
+		frame.setSize(600, 500);
+		frame.setTitle("Bez tytułu");
+		JTextArea textArea = new JTextArea();
+		scrollPane = new JScrollPane(textArea);
+		textArea.setLineWrap(true);
+		textArea.setWrapStyleWord(true);
+		frame.getContentPane().add(scrollPane);
 
 		JMenuBar menubar = new JMenuBar();
 
@@ -51,120 +61,29 @@ public class Main {
 
 		};
 
-		JMenuItem[] menuItem1 = addItemsToMenu(menuNameItem1, menu[0]);
-
-		/*
-		 * JMenu fileMenu = new myJMenu("File");
-		 * 
-		 * JMenuItem open = new myMenuItem("Open", 'o', "control O");
-		 * fileMenu.add(open);
-		 * 
-		 * JMenuItem save = new myMenuItem("Save", 's', "control S");
-		 * fileMenu.add(save);
-		 * 
-		 * JMenuItem saveAs = new myMenuItem("Save as...", 'a', "control A");
-		 * fileMenu.add(saveAs);
-		 * 
-		 * JMenuItem exit = new myMenuItem("Exit", 'x', "control X");
-		 */
-
-		/*
-		 * JSeparator separator = new JSeparator(SwingConstants.HORIZONTAL);
-		 * separator.setPreferredSize(new Dimension(0, 4));
-		 * separator.setBorder(BorderFactory
-		 * .createLineBorder(Color.RED.darker()));
-		 * separator.setBorder(BorderFactory.createCompoundBorder(
-		 * BorderFactory.createMatteBorder(1, 4, 1, 4, Color.WHITE),
-		 * separator.getBorder()));
-		 */
-
-		/*
-		 * fileMenu.add(makeSeparator()); fileMenu.add(exit);
-		 */
-
-		// menubar.add(fileMenu);
-
-		// JMenu editMenu = new myJMenu("Edit");
+		addItemsToMenu(menuNameItem1, menu[0]);
 
 		JMenu adresyMenu = new myJMenu("Adresy");
 		menu[1].add(adresyMenu);
 
-		String[][] menuNameItem2 = { { "Praca", "p", "control shift P" },
-				{ "Szkola", "s", "control shift S" },
-				{ "Dom", "d", "control shift D" }, };
-		
-		JMenuItem[] menuItem2 = addItemsToMenu(menuNameItem2, adresyMenu);
+		String[][] menuNameItem2 = {
+				{ "Praca", "p", "control shift P", "Praca: ul.Punkry 100" },
+				{ "Szkola", "s", "control shift S", "Szkola: ul.Koszykowa 86" },
+				{ "Dom", "d", "control shift D", "Dom: ul.Amsteram 30" }, };
 
-		/*
-		 * myMenuItem[] menuItemList2 = new myMenuItem[menuNameItem1.length];
-		 * 
-		 * 
-		 * JMenuItem praca = new myMenuItem("Praca", 'p', "control shift P");
-		 * JMenuItem szkola = new myMenuItem("Szkola", 's', "control shift S");
-		 * JMenuItem dom = new myMenuItem("Dom", 'd', "control shift D");
-		 * 
-		 * adresyMenu.add(praca); adresyMenu.add(szkola); adresyMenu.add(dom);
-		 */
-
-		// menubar.add(editMenu);
-
-		// JMenu optionsMenu = new myJMenu("Options");
-		// menubar.add(optionsMenu);
+		addItemsToMenu(menuNameItem2, adresyMenu);
 
 		String[] nameIncludeMenuItem = { "Foreground", "Background",
 				"Font size" };
-		
-		JMenu[] menuItemsIn = addItemsToMenu(nameIncludeMenuItem, menu[2]);
 
-		// JMenu foreground = new myJMenu("Foreground");
-		// optionsMenu.add(foreground);
+		JMenu[] menuItemsIn = addItemsToMenu(nameIncludeMenuItem, menu[2]);
 
 		String[] menuNameItem3 = { "Blue", "Yellow", "Orange", "Red", "White",
 				"Black", "Green" };
 
-		JMenuItem[] menuItemsForeground = addItemsToMenuIcon(menuItemsIn[0], menuNameItem3);
-		JMenuItem[] menuItemsBackground = addItemsToMenuIcon(menuItemsIn[1], menuNameItem3);
-		JMenuItem[] menuItemsFontSize = addItemsToMenuIcon(menuItemsIn[2],9);
-		
-	/*	menuItemsIn[0].add(new myMenuItem("Blue", Color.BLUE));
-		foreground.add(new myMenuItem("Yellow", Color.YELLOW));
-		foreground.add(new myMenuItem("Orange", Color.ORANGE));
-		foreground.add(new myMenuItem("Red", Color.RED));
-		foreground.add(new myMenuItem("White", Color.WHITE));
-		foreground.add(new myMenuItem("Black", Color.BLACK));
-		foreground.add(new myMenuItem("Green", Color.GREEN));*/
-
-		/*JMenu background = new myJMenu("Background");
-		// optionsMenu.add(background);
-
-		background.add(new myMenuItem("Blue", Color.BLUE));
-		background.add(new myMenuItem("Yellow", Color.YELLOW));
-		background.add(new myMenuItem("Orange", Color.ORANGE));
-		background.add(new myMenuItem("Red", Color.RED));
-		background.add(new myMenuItem("White", Color.WHITE));
-		background.add(new myMenuItem("Black", Color.BLACK));
-		background.add(new myMenuItem("Green", Color.GREEN));*/
-
-		/*JMenu fontSize = new myJMenu("Font size");
-		// optionsMenu.add(fontSize);
-
-		fontSize.add(new myMenuItem("8 pts"));
-		fontSize.add(new myMenuItem("10 pts"));
-		fontSize.add(new myMenuItem("12 pts"));
-		fontSize.add(new myMenuItem("14 pts"));
-		fontSize.add(new myMenuItem("16 pts"));
-		fontSize.add(new myMenuItem("18 pts"));
-		fontSize.add(new myMenuItem("20 pts"));
-		fontSize.add(new myMenuItem("22 pts"));
-		fontSize.add(new myMenuItem("24 pts"));*/
-
-		JTextArea textArea = new JTextArea();
-		JScrollPane scrollPane = new JScrollPane(textArea);
-
-		frame.getContentPane().add(scrollPane);
-
-		// Proszę Pana dać mi jeszcze czas... do końca tygodnia. Bo nie miałem
-		// możliwości to zrobić do końca. Dziękuję.
+		addItemsToMenuIcon(menuItemsIn[0], menuNameItem3);
+		addItemsToMenuIcon(menuItemsIn[1], menuNameItem3);
+		addItemsToMenuIcon(menuItemsIn[2], 8);
 
 		frame.setJMenuBar(menubar);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -173,13 +92,20 @@ public class Main {
 
 	}
 
-	private static JMenuItem[] addItemsToMenuIcon(JMenu jMenu,int value) {
-		JMenuItem[] menuItem = new myMenuItem[value];
-		int pts = 8;
-		for (int i = 0; i < value; i++) {
+	private static JMenuItem[] addItemsToMenuIcon(JMenu jMenu, int startFrom) { // add
+																				// @Font
+																				// size@
+																				// to
+																				// JMenu
+		startFrom++;
+		JMenuItem[] menuItem = new myMenuItem[startFrom];
+		BtnItemsListeners bl = new BtnItemsListeners(getScrollPane());
+		int pts = startFrom - 1;
+		for (int i = 0; i < startFrom; i++) {
 			menuItem[i] = new myMenuItem(pts + " pts");
+			menuItem[i].addActionListener(bl);
 			jMenu.add(menuItem[i]);
-			pts+=2;
+			pts += 2;
 		}
 		return menuItem;
 	}
@@ -194,7 +120,9 @@ public class Main {
 		return separator;
 	}
 
-	public static JMenuItem[] addItemsToMenu(String[][] menuNameItem1, JMenu menuArray) {
+	public static JMenuItem[] addItemsToMenu(String[][] menuNameItem1,
+			JMenu menuArray) { // add JMenuItem to JMenu
+		BtnItemsListeners bl = new BtnItemsListeners(getScrollPane()); // Praca,Szkola,Dom
 
 		JMenuItem[] menuItemList1 = new myMenuItem[menuNameItem1.length];
 		for (int i = 0; i < menuNameItem1.length; i++) {
@@ -202,14 +130,25 @@ public class Main {
 				menuArray.add(addSeparator());
 				continue;
 			}
-			menuItemList1[i] = new myMenuItem(menuNameItem1[i][0],
-					menuNameItem1[i][1].charAt(0), menuNameItem1[i][2]);
+			if (menuNameItem1[i].length == 4) {
+				menuItemList1[i] = new myMenuItem(menuNameItem1[i][0],
+						menuNameItem1[i][1].charAt(0), menuNameItem1[i][2],
+						menuNameItem1[i][3]);
+			} else {
+				menuItemList1[i] = new myMenuItem(menuNameItem1[i][0],
+						menuNameItem1[i][1].charAt(0), menuNameItem1[i][2],
+						null);
+			}
+			menuItemList1[i].addActionListener(bl);
 			menuArray.add(menuItemList1[i]);
 		}
 		return menuItemList1;
 	}
 
-	public static JMenu[] addItemsToMenu(String[] menuNameItem, JMenu menu) {
+	public static JMenu[] addItemsToMenu(String[] menuNameItem, JMenu menu) { // add
+																				// JMenu
+																				// to
+																				// JMenuBar
 
 		JMenu[] menuItemList = new myJMenu[menuNameItem.length];
 
@@ -224,12 +163,15 @@ public class Main {
 		return menuItemList;
 	}
 
-	public static JMenuItem[] addItemsToMenuIcon(JMenu menu, String[] nameItems) {
+	public static JMenuItem[] addItemsToMenuIcon(JMenu menu, String[] nameItems) { // add
+																					// JMenuItem
+																					// with
+																					// Icon
 		JMenuItem[] menuItem = new myMenuItem[nameItems.length];
 		Color color = Color.black;
-
+		BtnItemsListeners bl = new BtnItemsListeners(getScrollPane());
 		for (int i = 0; i < menuItem.length; i++) {
-			
+
 			switch (nameItems[i].toString()) {
 			case "Blue":
 				color = Color.BLUE;
@@ -252,49 +194,75 @@ public class Main {
 			case "Green":
 				color = Color.GREEN;
 				break;
-			
+
 			default:
 				color = Color.BLACK;
 				break;
 			}
 
 			menuItem[i] = new myMenuItem(nameItems[i], color);
+			menuItem[i].addActionListener(bl);
 			menu.add(menuItem[i]);
 		}
 		return menuItem;
+	}
+
+	public static JFrame getFrame() {
+		return frame;
+	}
+
+	public static JScrollPane getScrollPane() {
+		return scrollPane;
 	}
 }
 
 class myMenuItem extends JMenuItem {
 
-	public myMenuItem(String name, char mnem, String key) {
+	private static final long serialVersionUID = 1L;
+	public static Font font = new Font(null, Font.BOLD, 13);
+
+	public myMenuItem(String name, char mnem, String key, String textWstawiania) { // for
+																					// normal
+																					// items
+																					// with
+																					// name
+																					// mnemonic
+																					// and
+																					// accelerator
 		setText(name);
-		setFont(new Font(getName(), Font.BOLD, 13));
+		setFont(font);
+		if (textWstawiania != null) {
+			setName(textWstawiania);
+		}
 		setBorder(BorderFactory.createRaisedBevelBorder());
 		setMnemonic(mnem);
 		setAccelerator(KeyStroke.getKeyStroke(key));
 	}
 
-	public myMenuItem(String name, Color color) {
+	public myMenuItem(String name, Color color) { // for foreground and
+													// background
 		setText(name);
 		setIcon(new myIcon(color));
-		// setPreferredSize(new Dimension(60, 20));
-		setFont(new Font(getName(), Font.BOLD, 13));
+		putClientProperty(name, color);
+		setFont(font);
 		setBorder(BorderFactory.createRaisedBevelBorder());
 	}
 
-	public myMenuItem(String name) {
+	public myMenuItem(String name) { // for Font size
 		setText(name);
-		setFont(new Font(getName(), Font.BOLD, 13));
+		setFont(font);
 		setBorder(BorderFactory.createRaisedBevelBorder());
 	}
 
 }
 
 class myJMenu extends JMenu {
+
+	private static final long serialVersionUID = 1L;
+
 	public myJMenu(String name) {
 		setText(name);
-		setFont(new Font(getName(), Font.BOLD, 13));
+		setFont(myMenuItem.font);
 	}
 
 }
@@ -319,13 +287,11 @@ class myIcon implements Icon {
 
 	@Override
 	public int getIconWidth() {
-		// TODO Auto-generated method stub
 		return size;
 	}
 
 	@Override
 	public int getIconHeight() {
-		// TODO Auto-generated method stub
 		return size;
 	}
 
