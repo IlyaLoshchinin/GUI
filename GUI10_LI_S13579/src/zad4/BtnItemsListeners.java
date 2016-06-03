@@ -87,17 +87,18 @@ public class BtnItemsListeners implements ActionListener {
 	public void actionPerformedForFile(ActionEvent e, JMenuItem btn) throws IOException {
 		JFileChooser fileChooser = new JFileChooser(directory);
 		JTextArea area = (JTextArea) scrollPane.getViewport().getView();
+		
 
 		switch (btn.getText()) {
 		case "Open":
-			area.setLineWrap(false);
+
 			int returnVal = fileChooser.showOpenDialog(null);
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				file = fileChooser.getSelectedFile();
 				flag = file.isFile();
 				directory = file.getAbsolutePath();
 				try {
-
+					area.setLineWrap(false);
 					area.read(new FileReader(file.getAbsolutePath()), null);
 					Main.getFrame().setTitle(file.getAbsolutePath());
 				} catch (IOException ex) {
