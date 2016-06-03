@@ -54,7 +54,7 @@ public class BtnItemsListeners implements ActionListener {
 
 				if (menu.getText().equals("File")) {
 					try {
-						actionPerformedForExit(e, btn);
+						actionPerformedForFile(e, btn);
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -84,14 +84,13 @@ public class BtnItemsListeners implements ActionListener {
 	boolean flag = false;
 	FileWriter fileWriter;
 
-	public void actionPerformedForExit(ActionEvent e, JMenuItem btn) throws IOException {
+	public void actionPerformedForFile(ActionEvent e, JMenuItem btn) throws IOException {
 		JFileChooser fileChooser = new JFileChooser(directory);
 		JTextArea area = (JTextArea) scrollPane.getViewport().getView();
-		area.setLineWrap(false);
 
 		switch (btn.getText()) {
 		case "Open":
-
+			area.setLineWrap(false);
 			int returnVal = fileChooser.showOpenDialog(null);
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				file = fileChooser.getSelectedFile();
